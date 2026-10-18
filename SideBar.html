@@ -1,0 +1,58 @@
+<!-- sidebar.html -->
+<div id="sidebar" class="sidebar d-flex flex-column flex-shrink-0 p-3 bg-white border-end">
+    
+    <!-- Cabecera de la barra -->
+    <div class="d-flex align-items-center justify-content-between mb-3 pb-3 border-bottom">
+        <a href="#" class="d-flex align-items-center text-dark text-decoration-none">
+            <i class="bi bi-bootstrap-fill fs-3 text-primary me-2"></i>
+            <span class="fs-5 fw-bold link-text">Energía Solar</span>
+        </a>
+        <button id="btnToggle" class="btn btn-sm btn-light border">
+            <i class="bi bi-list fs-5"></i>
+        </button>
+    </div>
+
+    <!-- Menú -->
+    <ul class="nav nav-pills flex-column mb-auto">
+        <li class="nav-item">
+            <a href="#" class="nav-link active d-flex align-items-center gap-2">
+                <i class="bi bi-house-door fs-5"></i>
+                <span class="link-text">Inicio</span>
+            </a>
+        </li>
+        <li>
+            <a href="#menuProduccion" data-bs-toggle="collapse" class="nav-link text-dark d-flex align-items-center justify-content-between">
+                <div class="d-flex align-items-center gap-2">
+                    <i class="bi bi-table fs-5"></i>
+                    <span class="link-text">Producción</span>
+                </div>
+            </a>
+            <div class="collapse ms-3 mt-1" id="menuProduccion">
+                <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
+                    <li><a href="#" class="link-dark text-decoration-none rounded d-block py-1">Semana S43</a></li>
+                    <li><a href="#" class="link-dark text-decoration-none rounded d-block py-1">Semana S42</a></li>
+                </ul>
+            </div>
+        </li>
+        <li>
+            <a href="#" class="nav-link text-dark d-flex align-items-center gap-2">
+                <i class="bi bi-speedometer2 fs-5"></i>
+                <span class="link-text">Indicadores</span>
+            </a>
+        </li>
+        <li>
+            <a href="#" class="nav-link text-dark d-flex align-items-center gap-2">
+                <i class="bi bi-gear fs-5"></i>
+                <span class="link-text">Ajustes</span>
+            </a>
+        </li>
+    </ul>
+
+    <!-- Perfil -->
+    <div class="border-top pt-3">
+        <a href="#" class="d-flex align-items-center text-dark text-decoration-none gap-2">
+            <i class="bi bi-person-circle fs-4"></i>
+            <span class="link-text fw-bold">Ingeniería</span>
+        </a>
+    </div>
+</div>

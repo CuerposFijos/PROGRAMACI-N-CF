@@ -1,0 +1,29 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Producción</title>
+
+  <link rel="stylesheet" href="css/bootstrap.min.css">
+  <link rel="stylesheet" href="css/bootstrap-icons.min.css">
+  <link rel="stylesheet" href="css/estilo.css">
+  <!-- Tema de DataTables para Bootstrap 5 -->
+  <link rel="stylesheet" href="libs/dataTables.bootstrap5.min.css">
+</head>
+<body>
+  <div class="container-fluid p-4">
+    <h2 class="h4 mb-3"><i class="bi bi-table me-2"></i>Listado de producción</h2>
+    <div class="card shadow-sm">
+      <div class="card-body">
+        <table id="tabla-produccion" class="table table-striped w-100"></table>
+      </div>
+    </div>
+  </div>
+
+<script src="libs/papaparse.min.js"></script>
+<script src="libs/dataTables.min.js"></script>
+<script src="libs/dataTables.bootstrap5.min.js"></script>
+  <script type="module" src="js/produccion.js"></script>
+</body>
+</html>

@@ -2,9 +2,93 @@
 <html lang="es">
 <head>
     <meta charset="UTF-8">
-    <title>Programación Cuerpos Fijos</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard de Producción</title>
+
+    <!-- Estilos de Bootstrap y Bootstrap Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.0/font/bootstrap-icons.css">
+
+    <style>
+        body {
+            min-height: 100vh;
+            background-color: #f8f9fa;
+        }
+
+        /* Estilos de la barra lateral */
+        .sidebar {
+            width: 250px;
+            min-height: 100vh;
+            transition: all 0.3s ease;
+        }
+
+        .sidebar.collapsed {
+            width: 70px;
+        }
+
+        .sidebar.collapsed .link-text,
+        .sidebar.collapsed .dropdown-toggle::after {
+            display: none;
+        }
+
+        .sidebar.collapsed .nav-link {
+            text-align: center;
+            padding: 10px 0;
+        }
+
+        /* Área de contenido principal */
+        .main-content {
+            flex-grow: 1;
+            padding: 25px;
+            overflow-y: auto;
+        }
+    </style>
 </head>
-<body>
-    <h1>Hola Mundo</h1>
+<body class="d-flex">
+
+    <!-- 1. Aquí se inyectará el archivo sidebar.html -->
+    <div id="sidebar-container"></div>
+
+    <!-- 2. Contenido principal -->
+    <div class="main-content">
+        <h2>Panel de Control</h2>
+        <p class="text-muted">Cargando barra lateral desde un archivo externo...</p>
+    </div>
+
+    <!-- Scripts de Bootstrap -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+    <!-- Script para cargar componentes externos (fetch) -->
+    <script>
+        // Función para cargar archivos HTML externos
+        async function cargarComponente(idContenedor, archivo) {
+            try {
+                const respuesta = await fetch(archivo);
+                const html = await respuesta.text();
+                document.getElementById(idContenedor).innerHTML = html;
+
+                // Si acabamos de cargar la barra lateral, activamos el botón de colapsar
+                if (archivo === 'sidebar.html') {
+                    activarBotonToggle();
+                }
+            } catch (error) {
+                console.error('Error cargando el componente:', error);
+            }
+        }
+
+        function activarBotonToggle() {
+            const sidebar = document.getElementById('sidebar');
+            const btnToggle = document.getElementById('btnToggle');
+
+            if (btnToggle && sidebar) {
+                btnToggle.addEventListener('click', () => {
+                    sidebar.classList.toggle('collapsed');
+                });
+            }
+        }
+
+        // Cargar la barra lateral al abrir la página
+        cargarComponente('sidebar-container', 'sidebar.html');
+    </script>
 </body>
 </html>

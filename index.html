@@ -2,68 +2,9 @@
 <html lang="es">
 <head>
     <meta charset="UTF-8">
-    <title>Dashboard de Producción - Semana de Prueba</title>
-    <!-- Librería para leer el CSV de Google Sheets -->
-    <script src="https://cdn.jsdelivr.net/npm/papaparse@5.3.2/papaparse.min.js"></script>
-    <style>
-        body { font-family: Arial, sans-serif; padding: 20px; background-color: #f8f9fa; }
-        h1 { color: #333; }
-        table { border-collapse: collapse; width: 100%; margin-top: 20px; background: white; }
-        th, td { border: 1px solid #ddd; padding: 8px; text-align: left; }
-        th { background-color: #007bff; color: white; }
-    </style>
+    <title>Programación Cuerpos Fijos</title>
 </head>
 <body>
-
-    <h1>Vista de Producción (Pestaña Actual)</h1>
-    <div id="estado">Cargando datos de Google Sheets...</div>
-    <table id="tablaProduccion"></table>
-
-    <script>
-        // Pega aquí el enlace CSV de la pestaña específica
-        const URL_CSV = 'https://docs.google.com/spreadsheets/d/e/2PACX-1vTDaKnSja4euNW7KTTvIvyB5lmrijXcssDAJhzLQktFXk_FhjFW8HEgr5rd0UrvqHO_bv7B0bVH1rnG/pub?gid=420871835&single=true&output=csv';
-
-        function cargarHojaUnica() {
-            Papa.parse(URL_CSV, {
-                download: true,
-                header: true, // Asume que la primera fila son los encabezados
-                skipEmptyLines: true,
-                complete: function(results) {
-                    document.getElementById('estado').innerText = "Datos cargados correctamente.";
-                    mostrarTabla(results.data);
-                },
-                error: function(err) {
-                    document.getElementById('estado').innerText = "Error al cargar los datos.";
-                    console.error(err);
-                }
-            });
-        }
-
-        function mostrarTabla(datos) {
-            if (datos.length === 0) return;
-            
-            const tabla = document.getElementById('tablaProduccion');
-            
-            // Crear Encabezados
-            let encabezados = Object.keys(datos[0]);
-            let html = '<thead><tr>';
-            encabezados.forEach(col => html += `<th>${col}</th>`);
-            html += '</tr></thead><tbody>';
-
-            // Crear Filas
-            datos.forEach(fila => {
-                html += '<tr>';
-                encabezados.forEach(col => html += `<td>${fila[col] || ''}</td>`);
-                html += '</tr>';
-            });
-            html += '</tbody>';
-
-            tabla.innerHTML = html;
-        }
-
-        // Cargar datos al entrar
-        cargarHojaUnica();
-    </script>
+    <h1>Hola Mundo</h1>
 </body>
 </html>
-

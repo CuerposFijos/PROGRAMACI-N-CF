@@ -8,10 +8,37 @@ export const COL = {
   id: 0,
   sem: 4,
   estadoAl: 5,
-  proceso: 6,
+  estadoPK: 6,
   tipo: 7,
   fecha: 8,
-  cliente: 12,
-  proyecto: 13,
+  proyecto: 12,
+  produccion: 13,
   cant: 15,
 };
+
+// ---------- TOMA DE DATOS ----------
+
+export async function cargarDatos() {
+  // 1. Pedir el contenido del enlace
+  const respuesta = await fetch(CSV_URL);
+  const texto = await respuesta.text();
+
+  // 2. Convertir el texto en una lista de filas
+  const crudo = Papa.parse(texto, { skipEmptyLines: true }).data;
+
+  // 3. Quedarnos solo con filas reales y darles nombres
+  return crudo
+    .slice(1)
+    .filter(fila => /^\d+$/.test((fila[COL.id] || "").trim()))
+    .map(fila => ({
+      id: fila[COL.id].trim(),
+      sem: (fila[COL.sem] || "").trim(),
+      estadoAl: (fila[COL.estadoAl] || "").trim(),
+      estadoPK: (fila[COL.estadoPK] || "").trim(),
+      tipo: (fila[COL.tipo] || "").trim(),
+      fecha: (fila[COL.fecha] || "").trim(),
+      proyecto: (fila[COL.proyecto] || "").trim(),
+      produccion: (fila[COL.produccion] || "").trim(),
+      cant: parseInt(fila[COL.cant], 10) || 0,
+    }));
+}

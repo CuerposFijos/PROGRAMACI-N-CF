@@ -1,0 +1,6 @@
+<script src="https://cdnjs.cloudflare.com/ajax/libs/PapaParse/5.4.1/papaparse.min.js"></script>
+<script type="module">
+  import { cargarDatos } from "./js/datos.js";
+  const datos = await cargarDatos();
+  console.log(datos.length, datos[0]);
+</script>

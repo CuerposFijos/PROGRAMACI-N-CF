@@ -47,27 +47,36 @@
 
 <body class="d-flex">
 
-    <!-- 1. AQUÍ LLAMAS A LA BARRA LATERAL -->
-    <div id="sidebar" class="sidebar bg-light, text-dark p-3 d-flex flex-column">
-        <h3>Mi Menú</h3>
-        <ul class="nav flex-column mt-3">
-            <li class="nav-item mb-2">
-                <a href="#" class="nav-link text-dark active">
+    <!-- BARRA LATERAL ESTILO BOOTSTRAP -->
+    <div id="sidebar" class="sidebar bg-light border-end p-3 d-flex flex-column flex-shrink-0" style="width: 280px; min-height: 100vh;">
+        
+        <!-- Título superior -->
+        <a href="#" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto link-dark text-decoration-none">
+            <span class="fs-4 fw-bold">Mi Menú</span>
+        </a>
+        <hr>
+
+        <!-- Lista de opciones -->
+        <ul class="nav nav-pills flex-column mb-auto">
+            <li class="nav-item mb-1">
+                <!-- Opción activa (resaltada en azul) -->
+                <a href="#" class="nav-link active text-white" aria-current="page">
                     <i class="bi bi-house-door me-2"></i> Inicio
                 </a>
             </li>
-            <li class="nav-item">
-                <a href="#" class="nav-link text-dark">
+            <li class="nav-item mb-1">
+                <!-- Opción normal -->
+                <a href="#" class="nav-link link-dark">
                     <i class="bi bi-table me-2"></i> Registros
                 </a>
             </li>
         </ul>
     </div>
 
-    <!-- 2. AQUÍ LLAMAS AL CONTENIDO PRINCIPAL A LA DERECHA -->
-    <div class="main-content">
-        <h1>Panel de Control de Producción</h1>
-        <p>Aquí es donde mostraremos tu tabla de datos más adelante.</p>
+    <!-- CONTENIDO PRINCIPAL -->
+    <div class="main-content p-4">
+        <h2>Panel de Control de Producción</h2>
+        <p class="text-muted">Aquí es donde mostraremos tu tabla de datos más adelante.</p>
     </div>
 
 </body>

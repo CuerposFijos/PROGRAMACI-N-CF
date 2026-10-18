@@ -1,71 +1,18 @@
-<!DOCTYPE html>
-<html lang="es">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dashboard de Producción</title>
-
-    <!-- Estilos de Bootstrap y Bootstrap Icons -->
-<link rel="stylesheet" href="css/bootstrap.min.css">
-<link rel="stylesheet" href="css/bootstrap-icons.min.css">
-
-    <style>
-        body {
-            min-height: 100vh;
-            background-color: #f8f9fa;
-        }
-
-        /* Estilos de la barra lateral */
-        .sidebar {
-            width: 250px;
-            min-height: 100vh;
-            transition: all 0.3s ease;
-        }
-
-        .sidebar.collapsed {
-            width: 70px;
-        }
-
-        .sidebar.collapsed .link-text,
-        .sidebar.collapsed .dropdown-toggle::after {
-            display: none;
-        }
-
-        .sidebar.collapsed .nav-link {
-            text-align: center;
-            padding: 10px 0;
-        }
-
-        /* Área de contenido principal */
-        .main-content {
-            flex-grow: 1;
-            padding: 25px;
-            overflow-y: auto;
-        }
-    </style>
-</head>
-
 <body class="d-flex">
 
-    <!-- BARRA LATERAL ESTILO BOOTSTRAP -->
+    <!-- 1. BARRA LATERAL -->
     <div id="sidebar" class="sidebar bg-light border-end p-3 d-flex flex-column flex-shrink-0" style="width: 280px; min-height: 100vh;">
-        
-        <!-- Título superior -->
         <a href="#" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto link-dark text-decoration-none">
             <span class="fs-4 fw-bold">Mi Menú</span>
         </a>
         <hr>
-
-        <!-- Lista de opciones -->
         <ul class="nav nav-pills flex-column mb-auto">
             <li class="nav-item mb-1">
-                <!-- Opción activa (resaltada en azul) -->
                 <a href="#" id="link-inicio" class="nav-link active text-white" aria-current="page">
                     <i class="bi bi-house-door me-2"></i> Inicio
                 </a>
             </li>
             <li class="nav-item mb-1">
-                <!-- Opción normal -->
                 <a href="#" id="link-registros" class="nav-link link-dark">
                     <i class="bi bi-table me-2"></i> Registros
                 </a>
@@ -73,19 +20,78 @@
         </ul>
     </div>
 
-    <!-- CONTENIDO PRINCIPAL -->
-    <div class="main-content p-4">
-<!-- SECCIÓN 1: INICIO (Visible por defecto) -->
-    <div id="seccion-inicio">
-        <h2>Panel de Control</h2>
-        <p class="text-muted">Bienvenido al sistema de seguimiento de producción.</p>
-    </div>
+    <!-- 2. CONTENIDO PRINCIPAL -->
+    <div class="main-content p-4 flex-grow-1">
 
-    <!-- SECCIÓN 2: REGISTROS (Oculta por defecto usando la clase d-none) -->
-    <div id="seccion-registros" class="d-none">
-        <h2>Registros de Producción</h2>
-        <p class="text-muted">Aquí mostraremos la tabla próximamente.</p>
-    </div>
+        <!-- SECCIÓN 1: INICIO -->
+        <div id="seccion-inicio">
+            <h2>Panel de Control</h2>
+            <p class="text-muted">Bienvenido al sistema de seguimiento de producción.</p>
+        </div>
+
+        <!-- SECCIÓN 2: REGISTROS (AQUÍ PEGAS LA TABLA) -->
+        <div id="seccion-registros" class="d-none">
+            <div class="d-flex justify-content-between align-items-center mb-3">
+                <h2>Registros de Producción</h2>
+                <button class="btn btn-primary btn-sm">
+                    <i class="bi bi-plus-lg me-1"></i> Nuevo Registro
+                </button>
+            </div>
+
+            <!-- Buscador rápido -->
+            <div class="mb-3 w-50">
+                <input type="text" id="inputBuscador" class="form-control" placeholder="Buscar en la tabla...">
+            </div>
+
+            <!-- TABLA -->
+            <div class="table-responsive bg-white border rounded shadow-sm">
+                <table class="table table-hover align-middle mb-0" id="tablaProduccion">
+                    <thead class="table-light">
+                        <tr>
+                            <th># ID</th>
+                            <th>Fecha</th>
+                            <th>Producto</th>
+                            <th>Cantidad</th>
+                            <th>Estado</th>
+                            <th>Acciones</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>1001</td>
+                            <td>2026-10-15</td>
+                            <td>Vidrio Templado 6mm</td>
+                            <td>120 m²</td>
+                            <td><span class="badge bg-success">Completado</span></td>
+                            <td>
+                                <button class="btn btn-outline-secondary btn-sm"><i class="bi bi-pencil"></i></button>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>1002</td>
+                            <td>2026-10-16</td>
+                            <td>Vidrio Laminado 8mm</td>
+                            <td>85 m²</td>
+                            <td><span class="badge bg-warning text-dark">En Proceso</span></td>
+                            <td>
+                                <button class="btn btn-outline-secondary btn-sm"><i class="bi bi-pencil"></i></button>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>1003</td>
+                            <td>2026-10-17</td>
+                            <td>Panel Flotado 4mm</td>
+                            <td>200 m²</td>
+                            <td><span class="badge bg-danger">Pendiente</span></td>
+                            <td>
+                                <button class="btn btn-outline-secondary btn-sm"><i class="bi bi-pencil"></i></button>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
     </div>
 
 </body>

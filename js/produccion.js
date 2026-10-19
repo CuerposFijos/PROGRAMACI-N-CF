@@ -18,6 +18,7 @@ new DataTable("#tabla-produccion", {
     { data: "proyecto",   title: "Proyecto" },
     { data: "produccion", title: "Producción" },
     { data: "cant",       title: "Cant." },
+    { data: "saldoEnsb",  title: "saldo Ensamble" },
   ],
   pageLength: 25,
   language: { url: "libs/es-ES.json" },

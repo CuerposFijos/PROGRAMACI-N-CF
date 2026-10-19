@@ -14,7 +14,7 @@ export const COL = {
   proyecto: 13,
   produccion: 14,
   cant: 16,
-  saldoEmsb: 17,
+  saldoEnsb: 17,
 };
 
 // ---------- TOMA DE DATOS ----------
@@ -41,6 +41,6 @@ export async function cargarDatos() {
       proyecto: (fila[COL.proyecto] || "").trim(),
       produccion: (fila[COL.produccion] || "").trim(),
       cant: parseInt(fila[COL.cant], 10) || 0,
-      saldoEmsb: parseInt(fila[COL.saldoEmsb], 10) || 0,
+      saldoEnsb: parseInt(fila[COL.saldoEnsb], 10) || 0,
     }));
 }
